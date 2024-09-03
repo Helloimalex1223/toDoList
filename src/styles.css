@@ -1,4 +1,91 @@
 body
 {
-    background-color: orange;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "head head head head head"
+                         "sidebar toDoCards toDoCards toDoCards toDoCards"
+                         "sidebar toDoCards toDoCards toDoCards toDoCards"
+                         "sidebar toDoCards toDoCards toDoCards toDoCards"
+                         "foot foot foot foot foot";
+}
+
+nav
+{
+    grid-area: head;
+}
+
+header
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.buttonContainer
+{
+    display: flex;
+    gap: 1rem;
+}
+
+header button
+{
+    padding: .5rem 2rem;
+    font-weight: bolder;
+    height: 100%;
+}
+
+.sideBar
+{
+    grid-area: sidebar; 
+    border: 1px solid gray;
+    padding: 1rem;  
+}
+
+.taskButtons
+{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.projectButtons
+{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.toDoCardWrapper
+{
+    grid-area: toDoCards;
+    padding: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    border: 1px solid gray;
+}
+
+.toDoCardDiv
+{
+    background-color: rgba(0, 0, 255, 0.096);
+    border: 2px solid black;
+    width: fit-content;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer
+{
+    grid-area: foot;
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
 }
