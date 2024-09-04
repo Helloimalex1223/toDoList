@@ -2,23 +2,40 @@ import "./styles.css";
 import { toDoListObject } from "./to-do-card";
 import { toDoCardDom } from "./to-do-card-dom";
 import { modalLogic } from "./modal";
+import { onFormSubmit } from "./to-do-form-submit"
 
-//NEXT: Get information from the form in the modal. Input that into the toDoArray (Maybe need to create another module?)
+// NEXT: Fix logic and push the values the user submits in the form to the toDoListObject function
 
 let toDoArray = [];
+let submitButton;
 
 const addTask = document.querySelector(".addTask");
-addTask.addEventListener("click", modalLogic);
+addTask.addEventListener("click", function()
+{
+    //display the modal when the user clicks the Add Task Button
+    modalLogic();
+    submitButton = document.querySelector(".submitButton");
+    
+    //when the user clicks the submit button, set the to-do card values to the values in the form
+    submitButton.addEventListener("click", function()
+    {
+
+        //This format retrieves the correct toDoTitle from the form. Need to do something like I did in the library project. Trying to call the value from the checkbox Element is returning an error.  
+        console.log(onFormSubmit().toDoTitle);
 
 
-let dog1 = toDoListObject("Walk Dog", "I need to walk the dog.", "High", "Dog poops a lot", "Not completed");
+
+        //set the object returned from the onFormSubmit function to a variable
 
 
-let dog2 = toDoListObject("Walk Dog", "I need to walk the dog.", "High", "Dog poops a lot", "Not completed");
+        //plug that variable in to the toDoList creation function
+        // let dog2 = toDoListObject();
 
+        //push the values into the toDoList array
+        // toDoArray.push(dog2);
+    });  
+});
 
-toDoArray.push(dog1);
-toDoArray.push(dog2);
 
 console.log(toDoArray);
 

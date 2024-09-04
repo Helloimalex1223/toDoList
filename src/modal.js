@@ -159,6 +159,5 @@ export function modalLogic()
     
         // Append the rendered form to the container in the body
         myModal.appendChild(renderedForm);
-
-    cardWrapper.appendChild(myModal);
+        cardWrapper.appendChild(myModal);
 }
