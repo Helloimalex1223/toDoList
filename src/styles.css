@@ -6,7 +6,7 @@ body
     margin: 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 100px 1fr 1fr 1fr 100px;
     grid-template-areas: "head head head head head"
                          "sidebar toDoCards toDoCards toDoCards toDoCards"
                          "sidebar toDoCards toDoCards toDoCards toDoCards"
@@ -17,6 +17,9 @@ body
 nav
 {
     grid-area: head;
+    display: flex;
+    flex-direction: column;
+    max-height: 100px;
 }
 
 header
@@ -106,7 +109,10 @@ header button
     gap: 1rem;
     justify-content: center;
     border: 1px solid gray;
-    position: relative;;
+    position: relative;
+    flex-wrap: wrap;
+    min-height: 300px;
+    height: fit-content;
 }
 
 .toDoCardDiv
@@ -120,6 +126,7 @@ header button
     justify-content: center;
     align-items: center;
     text-align: center;
+    width: 33%;
 }
 
 footer

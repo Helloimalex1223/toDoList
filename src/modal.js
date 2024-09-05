@@ -12,8 +12,8 @@ export function modalLogic()
 
     //logic to create a form in the modal when the user opens it:
 
-        // Create the form container div
-        const renderedForm = document.createElement("div");
+        // Create the form container form
+        const renderedForm = document.createElement("form");
         renderedForm.className = "rendered-form";
     
         // Create the Title field

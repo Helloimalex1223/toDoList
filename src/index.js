@@ -4,7 +4,7 @@ import { toDoCardDom } from "./to-do-card-dom";
 import { modalLogic } from "./modal";
 import { onFormSubmit } from "./to-do-form-submit"
 
-// NEXT: Fix logic and push the values the user submits in the form to the toDoListObject function
+// NEXT: Clear and close the adding a task form when a user clicks "submit" 
 
 let toDoArray = [];
 let submitButton;
@@ -20,27 +20,32 @@ addTask.addEventListener("click", function()
     submitButton.addEventListener("click", function()
     {
 
-        //This format retrieves the correct toDoTitle from the form. Need to do something like I did in the library project. Trying to call the value from the checkbox Element is returning an error.  
-        console.log(onFormSubmit().toDoTitle);
+    //the values from the modal are initialized into a variable
+    let val = onFormSubmit();
+    console.log(val);
 
+    //resets the form after the user submits it 
+    document.querySelector(".rendered-form").reset();
 
+    //TODO: prevent the form from submitting when the Submit button is clicked
+    document.querySelector(".submitButton").addEventListener('submit', function(event)
+    {
+        event.preventDefault();
+    });
 
-        //set the object returned from the onFormSubmit function to a variable
+    //this variable is fed into the toDoListObject function
+    let valObj = toDoListObject(val);
 
+    console.log(`Values pushed into the toDoListObject function ${valObj}`);
+    //push the values into the toDoList array
+    toDoArray.push(valObj);
+    console.log(`Values in the toDoArray ${toDoArray[0]}`);
+    //output the values in the toDoArray to the DOM
+    for(let value in toDoArray)
+    {
+        toDoCardDom(toDoArray[value]);
+    }
 
-        //plug that variable in to the toDoList creation function
-        // let dog2 = toDoListObject();
-
-        //push the values into the toDoList array
-        // toDoArray.push(dog2);
     });  
 });
 
-
-console.log(toDoArray);
-
-//output the values in the toDoArray to the DOM
-for(let val in toDoArray)
-{
-    toDoCardDom(toDoArray[val]);
-}
