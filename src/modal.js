@@ -3,6 +3,7 @@ export function modalLogic()
     let cardWrapper = document.querySelector(".toDoCardWrapper");
     let myModal = document.createElement("div");
     myModal.classList.add("modalContainer");
+    myModal.classList.add("hidden");
 
     let modalTitle = document.createElement("h2");
     modalTitle.classList.add("modalTitle");
@@ -12,7 +13,7 @@ export function modalLogic()
 
     //logic to create a form in the modal when the user opens it:
 
-        // Create the form container form
+        // Create the form element
         const renderedForm = document.createElement("form");
         renderedForm.className = "rendered-form";
     
@@ -157,7 +158,8 @@ export function modalLogic()
         renderedForm.appendChild(submit);
         renderedForm.appendChild(cancel);
     
-        // Append the rendered form to the container in the body
+        // Append the rendered form to the modal container
         myModal.appendChild(renderedForm);
-        cardWrapper.appendChild(myModal);
+        cardWrapper.appendChild(myModal);   
+
 }

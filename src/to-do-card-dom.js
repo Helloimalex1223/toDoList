@@ -1,5 +1,7 @@
 export function toDoCardDom(toDoCardObject)
 {
+    //by default, the DOM text content displays an extra "," as tat is the value in the toDoCard object. That is why each textContent has to be sliced.
+
     const cardWrapper = document.querySelector(".toDoCardWrapper");
     const cardDiv = document.createElement("div");
     
@@ -7,19 +9,19 @@ export function toDoCardDom(toDoCardObject)
     cardWrapper.appendChild(cardDiv);
 
     const cardTitle = document.createElement("h2");
-    cardTitle.textContent = toDoCardObject.title;
+    cardTitle.textContent = toDoCardObject.title.slice(0, -1);
     cardDiv.appendChild(cardTitle);
 
     const cardDescription = document.createElement("p");
-    cardDescription.textContent = `Description: ${toDoCardObject.description}`;
+    cardDescription.textContent = `Description: ${toDoCardObject.description.slice(0, -1)}`;
     cardDiv.appendChild(cardDescription);
 
     const cardPriority = document.createElement("p");
-    cardPriority.textContent = `Priority: ${toDoCardObject.priority}`;
+    cardPriority.textContent = `Priority: ${toDoCardObject.priority.slice(0, -1)}`;
     cardDiv.appendChild(cardPriority);
 
     const cardNotes = document.createElement("p");
-    cardNotes.textContent = `Notes: ${toDoCardObject.notes}`;
+    cardNotes.textContent = `Notes: ${toDoCardObject.notes.slice(0, -1)}`;
     cardDiv.appendChild(cardNotes);
 
     const cardCompleted = document.createElement("p");
