@@ -4,23 +4,35 @@ import { toDoCardDom } from "./to-do-card-dom";
 import { modalLogic } from "./modal";
 import { onFormSubmit } from "./to-do-form-submit"
 
-// NEXT: Figure out the logic for adding and removing the "hidden" class to the modal. For some reason it resets the page when you click "cancel." Adding a to-do card and then clicking cancel is fine.
+
+//TODO =- rewrite this code to be more modular. Add new modules for:
+//showing/hiding/toggling classes on the modal (can add in Modal.js)
+//form handling -- collects/returns form data/prevents default form submission behavior
+//event listeners
+modalLogic(); 
 
 let toDoArray = [];
 let submitButton;
 let cancelButton;
 
+let modalSelect = document.querySelector(".modalContainer");
+    
+submitButton = document.querySelector(".submitButton");
+cancelButton = document.querySelector(".cancelButton");
+
 const addTask = document.querySelector(".addTask");
+
+modalSelect.classList.add("hidden");
+
+
 addTask.addEventListener("click", function()
 {
+    modalSelect.classList.toggle("hidden");
 
     //display the modal when the user clicks the Add Task Button
-    modalLogic();
-    let modalSelect = document.querySelector(".modalContainer");
+});
 
-    modalSelect.classList.remove("hidden");
-    submitButton = document.querySelector(".submitButton");
-    cancelButton = document.querySelector(".cancelButton");
+
     
     //when the user clicks the submit button, set the to-do card values to the values in the form
     submitButton.addEventListener("click", function()
@@ -44,30 +56,31 @@ addTask.addEventListener("click", function()
     //resets the form after the user submits it 
     document.querySelector(".rendered-form").reset();
 
-    //Prevent the form from submitting when the Submit button is clicked
-    document.querySelector(".rendered-form").addEventListener('submit', function(event)
-    {
-        event.preventDefault();
-    });
+        //Prevent the form from submitting when the Submit button is clicked
+        document.querySelector(".rendered-form").addEventListener('submit', function(event)
+        {
+            console.log("Form Prevented from submitting");
+            event.preventDefault();
+        });
 
 
 
-    });  
+    }); 
+
 
     cancelButton.addEventListener("click", function()
     {
         //resets the form after the user submits it 
         document.querySelector(".rendered-form").reset();
 
-        //Prevent the form from submitting when the Submit button is clicked
-        document.querySelector(".rendered-form").addEventListener('submit', function(event)
-        {
+            //Prevent the form from submitting when the Submit button is clicked
+    document.querySelector(".rendered-form").addEventListener('submit', function(event)
+    {
+        console.log("Form Prevented from submitting");
         event.preventDefault();
-        });
-        
+    });
+
         modalSelect.classList.add("hidden");
         
     });
-    
-});
 

@@ -3,7 +3,6 @@ export function modalLogic()
     let cardWrapper = document.querySelector(".toDoCardWrapper");
     let myModal = document.createElement("div");
     myModal.classList.add("modalContainer");
-    myModal.classList.add("hidden");
 
     let modalTitle = document.createElement("h2");
     modalTitle.classList.add("modalTitle");
@@ -136,7 +135,6 @@ export function modalLogic()
 
         const submit = document.createElement("button");
         submit.textContent = "Submit";
-        submit.type = "submit";
         submit.classList.add("submitButton");
 
         const cancel = document.createElement("button");
