@@ -161,3 +161,8 @@ export function modalLogic()
         cardWrapper.appendChild(myModal);   
 
 }
+
+export function toggleModal(DOMElement)
+{
+    DOMElement.classList.toggle("hidden");
+}

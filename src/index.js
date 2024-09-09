@@ -1,86 +1,62 @@
 import "./styles.css";
-import { toDoListObject } from "./to-do-card";
-import { toDoCardDom } from "./to-do-card-dom";
 import { modalLogic } from "./modal";
-import { onFormSubmit } from "./to-do-form-submit"
+import { toggleModal } from "./modal";
+import { handleFormInfo } from "./formHandling"
+import { handleFormReset } from "./formHandling"
+import { eventListener } from "./eventListener"
 
 
-//TODO =- rewrite this code to be more modular. Add new modules for:
-//showing/hiding/toggling classes on the modal (can add in Modal.js)
-//form handling -- collects/returns form data/prevents default form submission behavior
-//event listeners
+//TODO - figure out making the form inputs hide when the .hidden class is added to the form
+//seperate out the eventListeners into their own module?
 modalLogic(); 
 
 let toDoArray = [];
-let submitButton;
-let cancelButton;
-
+let submitButton = document.querySelector(".submitButton");
+let cancelButton = document.querySelector(".cancelButton");
+let addTask = document.querySelector(".addTask");
 let modalSelect = document.querySelector(".modalContainer");
-    
-submitButton = document.querySelector(".submitButton");
-cancelButton = document.querySelector(".cancelButton");
 
-const addTask = document.querySelector(".addTask");
+//hide the modal when the page is loaded
+toggleModal(modalSelect);
 
-modalSelect.classList.add("hidden");
-
-
+//display the modal when the "add task" button is clicked
 addTask.addEventListener("click", function()
 {
-    modalSelect.classList.toggle("hidden");
-
-    //display the modal when the user clicks the Add Task Button
+    toggleModal(modalSelect);
 });
 
 
     
-    //when the user clicks the submit button, set the to-do card values to the values in the form
-    submitButton.addEventListener("click", function()
+submitButton.addEventListener("click", function()
     {
 
-    //the values from the modal are initialized into a variable
-    let val = onFormSubmit();
-    console.log(val);
+    //inputs the array of to do objects and the class name of the form into the handleForm function
+    handleFormInfo(toDoArray, ".rendered-form");
 
-    //this variable is fed into the toDoListObject function
-    let valObj = toDoListObject(val);
+    //resets the form after the user submits it
+    handleFormReset(".rendered-form");
 
-    console.log(`Values pushed into the toDoListObject function ${valObj}`);
-    //push the values into the toDoList array
-    toDoArray.push(valObj);
-    console.log(`Values in the toDoArray ${toDoArray[0]}`);
-    
-    //output the last array value to the DOM
-    toDoCardDom(toDoArray[toDoArray.length - 1]);
-
-    //resets the form after the user submits it 
-    document.querySelector(".rendered-form").reset();
-
-        //Prevent the form from submitting when the Submit button is clicked
-        document.querySelector(".rendered-form").addEventListener('submit', function(event)
+    //Prevent the form from submitting when the Submit button is clicked
+    document.querySelector(".rendered-form").addEventListener('submit', function(event)
         {
-            console.log("Form Prevented from submitting");
-            event.preventDefault();
+        event.preventDefault();
         });
-
-
 
     }); 
 
 
-    cancelButton.addEventListener("click", function()
+cancelButton.addEventListener("click", function()
     {
-        //resets the form after the user submits it 
-        document.querySelector(".rendered-form").reset();
+    //resets the form after the user submits it 
+    handleFormReset(".rendered-form");
 
-            //Prevent the form from submitting when the Submit button is clicked
+    //Prevent the form from submitting when the Submit button is clicked
     document.querySelector(".rendered-form").addEventListener('submit', function(event)
-    {
-        console.log("Form Prevented from submitting");
-        event.preventDefault();
-    });
+        {
+            event.preventDefault();
+        });
 
-        modalSelect.classList.add("hidden");
-        
+    toggleModal(modalSelect);   
+    
     });
 
