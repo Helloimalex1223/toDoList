@@ -20,6 +20,10 @@ export function toDoCardDom(toDoCardObject)
     cardPriority.textContent = `Priority: ${toDoCardObject.priority.slice(0, -1)}`;
     cardDiv.appendChild(cardPriority);
 
+    const cardDueDate = document.createElement("p");
+    cardDueDate.textContent = `Due Date: ${toDoCardObject.dueDate.slice(0, -1)}`;
+    cardDiv.appendChild(cardDueDate);
+
     const cardNotes = document.createElement("p");
     cardNotes.textContent = `Notes: ${toDoCardObject.notes.slice(0, -1)}`;
     cardDiv.appendChild(cardNotes);
@@ -27,4 +31,9 @@ export function toDoCardDom(toDoCardObject)
     const cardCompleted = document.createElement("p");
     cardCompleted.textContent = `Completed: ${toDoCardObject.completed}`;
     cardDiv.appendChild(cardCompleted);
+
+    const cardDelete = document.createElement("button");
+    cardDelete.classList.add("deleteButton");
+    cardDelete.textContent = `Delete Card`;
+    cardDiv.appendChild(cardDelete);
 }

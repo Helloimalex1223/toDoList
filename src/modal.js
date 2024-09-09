@@ -88,6 +88,23 @@ export function modalLogic()
     
         priorityDiv.appendChild(priorityLabel);
         priorityDiv.appendChild(prioritySelect);
+
+        //create the dueDate field
+        const dueDateDiv = document.createElement("div");
+        dueDateDiv.className = "formbuilder-textarea form-group field-notes";
+    
+        const dueDateLabel = document.createElement("label");
+        dueDateLabel.setAttribute("for", "dueDate");
+        dueDateLabel.className = "formbuilder-textarea-label";
+        dueDateLabel.textContent = "Due Date";
+    
+        const dueDateTextarea = document.createElement("textarea");
+        dueDateTextarea.className = "dueDate";
+        dueDateTextarea.name = "dueDate";
+        dueDateTextarea.id = "dueDate";
+
+        dueDateDiv.appendChild(dueDateLabel);
+        dueDateDiv.appendChild(dueDateTextarea);
     
         // Create the Notes field
         const notesDiv = document.createElement("div");
@@ -151,6 +168,7 @@ export function modalLogic()
         renderedForm.appendChild(titleDiv);
         renderedForm.appendChild(descriptionDiv);
         renderedForm.appendChild(priorityDiv);
+        renderedForm.appendChild(dueDateDiv);
         renderedForm.appendChild(notesDiv);
         renderedForm.appendChild(completedDiv);
         renderedForm.appendChild(submit);
