@@ -15,3 +15,16 @@ export function toDoListObject(inputString)
 
     return { title, description, priority, dueDate, notes, completed };
 }
+
+// export function deleteToDoListObject(arrayContainingObject)
+// {
+//     for(let i in arrayContainingObject)
+//     {
+//         if(arrayContainingObject[i] == arrayContainingObject[0])
+//         {
+//             arrayContainingObject[i].splice(arrayContainingObject[i], 1);
+//         }
+//     }
+
+//     return arrayContainingObject;
+// }

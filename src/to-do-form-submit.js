@@ -16,7 +16,6 @@ export function onFormSubmit()
     {
         isCompleted = false;
     }
-    console.log("OnFormSubmit called");
 
     return (`${toDoTitle}, ${toDoDescription}, ${toDoPriority}, ${toDoDueDate}, ${toDoNotes}, ${isCompleted}`);
 }
