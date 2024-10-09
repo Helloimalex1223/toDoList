@@ -6,6 +6,7 @@ export function toDoCardDom(toDoCardObject, cardNumber)
     const cardDiv = document.createElement("div");
     
     cardDiv.classList.add("toDoCardDiv");
+    cardDiv.setAttribute("id", `card` + cardNumber);
     cardWrapper.appendChild(cardDiv);
 
     const cardTitle = document.createElement("h2");
@@ -39,3 +40,8 @@ export function toDoCardDom(toDoCardObject, cardNumber)
     cardDelete.setAttribute("id", cardNumber);
     cardDiv.appendChild(cardDelete);
 }
+
+// export function deleteToDoListDOM(cardNumber)
+// {
+//     cardNumber.parentNode.remove();
+// }

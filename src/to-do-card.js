@@ -2,7 +2,6 @@ export function toDoListObject(inputString)
 {
     //split the input string into an array
     //see the to-do-form-submit module for the exported information
-    console.log(`ToDoList function called. Input string is: ${inputString}`);
     let stringToArray = inputString.split(" ");
 
     //the array index corresponds to the card's title, description, priority, notes, and whether it was completed
