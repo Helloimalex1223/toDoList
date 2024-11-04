@@ -1,4 +1,4 @@
-export function modalLogic()
+export function formModalLogic()
 {
     let cardWrapper = document.querySelector(".toDoCardWrapper");
     let myModal = document.createElement("div");

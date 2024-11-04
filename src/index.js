@@ -1,33 +1,48 @@
 import "./styles.css";
-import { modalLogic } from "./modal";
+import { formModalLogic } from "./modal";
 import { toggleModal } from "./modal";
 import { handleFormInfo } from "./formHandling"
 import { handleFormReset } from "./formHandling"
-import { deleteToDoListObject } from "./to-do-card";
-import { deleteToDoListDOM } from "./to-do-card-dom";
+import { addProject } from "./addProject";
+import { hideInput } from "./addProject";
+// import { deleteToDoListObject } from "./to-do-card";
+// import { deleteToDoListDOM } from "./to-do-card-dom";
 
+
+//TOD   o: CREATE DROPDOWN THAT DISPLAYS WHEN THE USER CLICKS "ADD PROJECT." Feed the info into the DOM to create a button with that project name. Later, categorize the to do cards by the available projects
 
 //Allow users to delete a card
-modalLogic(); 
+formModalLogic(); 
+
 
 let toDoArray = [];
 let submitButton = document.querySelector(".submitButton");
 let cancelButton = document.querySelector(".cancelButton");
-let deleteButton;
+let addProjectButton = document.querySelector(".addProject");
 let myToDoCardList;
 let cardToRemove;
 //initalize the card number. This is fed into the DOM when creating a card. When the user clicks a specific "delete" button, this value is used to delete the relevant card. 
 let cardNumber = 0;
 let addTask = document.querySelector(".addTask");
 let modalSelect = document.querySelector(".modalContainer");
+let projectSelect = document.querySelector(".myProjects");
 
 //hide the modal when the page is loaded
 toggleModal(modalSelect);
+
+//hide the form input when the page is loaded
+hideInput(projectSelect);
 
 //display the modal when the "add task" button is clicked
 addTask.addEventListener("click", function()
 {
     toggleModal(modalSelect);
+});
+
+//display the project modal when the "add project" button is clicked
+addProjectButton.addEventListener("click", function()
+{
+    addProject();
 });
 
 // let todayButton = document.querySelector(".today");
