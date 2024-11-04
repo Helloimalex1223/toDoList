@@ -2,6 +2,7 @@ export function onFormSubmit()
 {
     const toDoTitle = document.querySelector("#title").value;
     const toDoDescription = document.querySelector("#description").value;
+    const toDoProject = document.querySelector("#project").value;
     const toDoPriority = document.querySelector("#priority").value;
     const toDoDueDate = document.querySelector("#dueDate").value;
     const toDoNotes = document.querySelector("#notes").value;
@@ -17,5 +18,5 @@ export function onFormSubmit()
         isCompleted = false;
     }
 
-    return (`${toDoTitle}, ${toDoDescription}, ${toDoPriority}, ${toDoDueDate}, ${toDoNotes}, ${isCompleted}`);
+    return (`${toDoTitle}, ${toDoProject}, ${toDoDescription}, ${toDoPriority}, ${toDoDueDate}, ${toDoNotes}, ${isCompleted}`);
 }

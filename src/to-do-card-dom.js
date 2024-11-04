@@ -9,10 +9,15 @@ export function toDoCardDom(toDoCardObject, cardNumber)
     cardDiv.setAttribute("id", `card` + cardNumber);
     cardWrapper.appendChild(cardDiv);
 
-    const cardTitle = document.createElement("h2");
+    const cardTitle = document.createElement("h1");
     cardTitle.classList.add("cardTitle");
     cardTitle.textContent = toDoCardObject.title.slice(0, -1);
     cardDiv.appendChild(cardTitle);
+
+    const cardProject = document.createElement("h2");
+    cardProject.classList.add("cardProject");
+    cardProject.textContent = `Project: ${toDoCardObject.project.slice(0, -1)}`;
+    cardDiv.appendChild(cardProject);
 
     const cardDescription = document.createElement("p");
     cardDescription.textContent = `Description: ${toDoCardObject.description.slice(0, -1)}`;

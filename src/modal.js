@@ -33,6 +33,24 @@ export function modalLogic()
     
         titleDiv.appendChild(titleLabel);
         titleDiv.appendChild(titleInput);
+
+        // Create the Project field
+        const projectDiv = document.createElement("div");
+        projectDiv.className = "formbuilder-text form-group field-title";
+    
+        const projectLabel = document.createElement("label");
+        projectLabel.setAttribute("for", "project");
+        projectLabel.className = "formbuilder-text-label";
+        projectLabel.textContent = "Project";
+    
+        const projectInput = document.createElement("input");
+        projectInput.type = "text";
+        projectInput.className = "project";
+        projectInput.name = "project";
+        projectInput.id = "project";
+    
+        projectDiv.appendChild(projectLabel);
+        projectDiv.appendChild(projectInput);
     
         // Create the Description field
         const descriptionDiv = document.createElement("div");
@@ -167,6 +185,7 @@ export function modalLogic()
         // Append all fields to the renderedForm div
         renderedForm.appendChild(titleDiv);
         renderedForm.appendChild(descriptionDiv);
+        renderedForm.appendChild(projectDiv);
         renderedForm.appendChild(priorityDiv);
         renderedForm.appendChild(dueDateDiv);
         renderedForm.appendChild(notesDiv);

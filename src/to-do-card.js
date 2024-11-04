@@ -6,24 +6,12 @@ export function toDoListObject(inputString)
 
     //the array index corresponds to the card's title, description, priority, notes, and whether it was completed
     let title = stringToArray[0];
-    let description = stringToArray[1];
-    let priority = stringToArray[2];
-    let dueDate = stringToArray[3];
-    let notes = stringToArray[4];
-    let completed = stringToArray[5];
+    let project = stringToArray[1];
+    let description = stringToArray[2];
+    let priority = stringToArray[3];
+    let dueDate = stringToArray[4];
+    let notes = stringToArray[5];
+    let completed = stringToArray[6];
 
-    return { title, description, priority, dueDate, notes, completed };
+    return { title, project, description, priority, dueDate, notes, completed };
 }
-
-// export function deleteToDoListObject(arrayContainingObject)
-// {
-//     for(let i in arrayContainingObject)
-//     {
-//         if(arrayContainingObject[i] == arrayContainingObject[0])
-//         {
-//             arrayContainingObject[i].splice(arrayContainingObject[i], 1);
-//         }
-//     }
-
-//     return arrayContainingObject;
-// }

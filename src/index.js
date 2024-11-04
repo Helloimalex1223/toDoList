@@ -42,8 +42,6 @@ addTask.addEventListener("click", function()
     const parent = document.querySelector(".toDoCardWrapper");
     parent.addEventListener("click", function(e)
     {
-
-    //TODO - figure out why my event listener is called multiple times. It looks like it's called the amount of times as the number of cards. How do I ensure this is only called once?
         if(e.target.id != "" && e.target.classList.contains("deleteButton"))
         {
             rem(e.target.id);
