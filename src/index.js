@@ -41,7 +41,9 @@ addTask.addEventListener("click", function()
 //display the project modal when the "add project" button is clicked
 addProjectButton.addEventListener("click", function()
 {
-    addProject();
+    let val = addProject();
+    projectArray.push(val);
+    console.log(projectArray);
 });
 
 // let todayButton = document.querySelector(".today");
