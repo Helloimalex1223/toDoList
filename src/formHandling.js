@@ -6,6 +6,7 @@ import { toDoListObject } from "./to-do-card";
 export function handleFormInfo(arrayName, cardNumber)
 {
 
+cardNumber++;
 //the values from the modal are initialized into a variable
 let val = onFormSubmit();
 
@@ -17,7 +18,6 @@ arrayName.push(valObj);
 
 //output the last array value to the DOM
 toDoCardDom(arrayName[arrayName.length - 1], cardNumber);
-cardNumber++;
 
 return cardNumber;
 }

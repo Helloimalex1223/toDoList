@@ -1,10 +1,15 @@
 export function addProject()
 {
-    console.log("Button clicked");
+    const formValue = document.querySelector("#project");
+    console.log(formValue.value);
+    addProjectButton(formValue.value);
+    formValue.value = "";
 }
 
-export function hideInput(DOMElement)
+function addProjectButton(projectButton)
 {
-    // DOMElement.classList.toggle("hidden");
-    console.log("button clicked");
+    const projDiv = document.querySelector(".currentProjects");
+    const myButton = document.createElement("button");
+    myButton.textContent = projectButton;
+    projDiv.appendChild(myButton);
 }
