@@ -4,6 +4,7 @@ import { toggleModal } from "./modal";
 import { handleFormInfo } from "./formHandling"
 import { handleFormReset } from "./formHandling"
 import { addProject } from "./addProject";
+import { addProjectToModal } from "./modal";
 // import { deleteToDoListObject } from "./to-do-card";
 // import { deleteToDoListDOM } from "./to-do-card-dom";
 
@@ -13,11 +14,13 @@ import { addProject } from "./addProject";
 //fill in project array with the added project values (from the buttons the user added) --- add a div for each separate project? Then the user can delete projects as needed. -- need to feed this array into the project field so a user can select this when creating a card.
 
 //Allow users to delete a card
-formModalLogic(); 
 
 
 let toDoArray = [];
-let projectArray = [];
+let projectArray = ["value"];
+//call the modal function and pass in the current array of projects
+formModalLogic(); 
+
 let submitButton = document.querySelector(".submitButton");
 let cancelButton = document.querySelector(".cancelButton");
 let addProjectButton = document.querySelector(".addProject");
@@ -43,16 +46,9 @@ addProjectButton.addEventListener("click", function()
 {
     let val = addProject();
     projectArray.push(val);
-    console.log(projectArray);
+    addProjectToModal(projectArray);
 });
 
-// let todayButton = document.querySelector(".today");
-
-// todayButton.addEventListener("click", function()
-// {
-//     let myDeleteButtonList = document.getElementsByClassName(".deleteButton");
-//     console.log(myDeleteButtonList);
-// });
 
     //selects the parent div
     const parent = document.querySelector(".toDoCardWrapper");

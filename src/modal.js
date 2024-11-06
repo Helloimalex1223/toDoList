@@ -36,21 +36,29 @@ export function formModalLogic()
 
         // Create the Project field
         const projectDiv = document.createElement("div");
-        projectDiv.className = "formbuilder-text form-group field-title";
+        projectDiv.className = "projDiv";
     
         const projectLabel = document.createElement("label");
         projectLabel.setAttribute("for", "project");
         projectLabel.className = "formbuilder-text-label";
         projectLabel.textContent = "Project";
     
-        const projectInput = document.createElement("input");
-        projectInput.type = "text";
+        const projectInput = document.createElement("select");
         projectInput.className = "project";
         projectInput.name = "project";
         projectInput.id = "project";
-    
-        projectDiv.appendChild(projectLabel);
-        projectDiv.appendChild(projectInput);
+
+        //TODO get the project names from the projectArray array in the index.js file -- maybe create a new funciton for this>
+        
+
+        // const projSelections = document.createElement("option");
+        // projSelections.value = choiceArr[proj];
+        // projSelections.textContent = choiceArr[proj];
+        // projectInput.appendChild(projSelections);
+
+
+        // projectDiv.appendChild(projectLabel);
+        // projectDiv.appendChild(projectInput);
     
         // Create the Description field
         const descriptionDiv = document.createElement("div");
@@ -196,6 +204,26 @@ export function formModalLogic()
         // Append the rendered form to the modal container
         myModal.appendChild(renderedForm);
         cardWrapper.appendChild(myModal);   
+
+}
+
+
+//TODO -- Troubleshoot how to get values in the project array to get added as a DOM element. I need to get the values from the array and place them in the DOM element.
+export function addProjectToModal(modalArr)
+{
+    const projectDivv = document.querySelector(".projDiv");
+    const projSelections = document.createElement("option");
+
+    for(let proj in modalArr)
+    {
+        projSelections.value = modalArr[proj];
+        projSelections.textContent = modalArr[proj];
+        projectInput.appendChild(projSelections);
+    
+    }
+    projectDivv.appendChild(projectLabel);
+    projectDivv.appendChild(projectInput);
+
 
 }
 
